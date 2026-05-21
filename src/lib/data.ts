@@ -7,6 +7,19 @@ export interface Metric {
   value: string
   subValue?: string
   trend?: Trend
+  href?: string
+}
+
+export interface LegislativePackage {
+  id: string
+  name: string
+  shortName?: string
+  legalAct: string
+  sector: string
+  adoptedDate: string
+  description: string
+  keyProvisions: string[]
+  references: Reference[]
 }
 
 export interface Policy {
@@ -65,7 +78,7 @@ export const initiatives: Initiative[] = [
     targetYear: 2050,
     announcedYear: 2019,
     keyMetrics: [
-      { label: 'Legislative Packages Adopted', value: '13/13', trend: 'improving' },
+      { label: 'Legislative Packages Adopted', value: '13/13', trend: 'improving', href: '/legislative-packages' },
       { label: 'GHG Reduction vs 1990 (2022)', value: '−34%', subValue: 'Target: −55% by 2030', trend: 'improving' },
       { label: 'Investment Mobilised', value: '€1T+', subValue: 'Sustainable Europe Investment Plan', trend: 'improving' },
       { label: 'Active Sub-initiatives', value: '50+', trend: 'stable' },
@@ -281,6 +294,280 @@ export const initiatives: Initiative[] = [
       { year: 2040, title: '−90% GHG emissions (proposed target)', achieved: false },
       { year: 2045, title: 'Near-complete phase-out of unabated fossil fuels', achieved: false },
       { year: 2050, title: 'Climate neutrality: net-zero GHG emissions EU-wide', achieved: false },
+    ],
+  },
+]
+
+export const legislativePackages: LegislativePackage[] = [
+  {
+    id: 'eu-ets-reform',
+    name: 'EU Emissions Trading System Reform',
+    shortName: 'EU ETS',
+    legalAct: 'Directive (EU) 2023/959',
+    sector: 'Cross-sector',
+    adoptedDate: 'Apr 2023',
+    description:
+      'Revised the EU ETS (the world\'s largest carbon market) by steepening the annual cap reduction to 4.3% from 2024, expanding coverage to the maritime sector, accelerating the phase-out of free allowances for industry, and creating ETS 2 (a separate system for buildings and road transport launching in 2027).',
+    keyProvisions: [
+      'Annual cap reduction rate raised from 2.2% to 4.3% (2024–2027), then 4.4%',
+      'Maritime sector included from 2024 (full coverage by 2026)',
+      'Free allowances for industry phased out 2026–2034',
+      'New ETS 2 for buildings and road transport fuel (Chapter IVa)',
+      'Innovation Fund strengthened with additional ETS auction revenues',
+    ],
+    references: [
+      { title: 'Directive (EU) 2023/959 — EUR-Lex', url: 'https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32023L0959' },
+      { title: 'Council adopts key Fit for 55 legislation (Apr 2023)', url: 'https://www.consilium.europa.eu/en/press/press-releases/2023/04/25/fit-for-55-council-adopts-key-pieces-of-legislation-delivering-on-2030-climate-targets/' },
+      { title: 'EC press release on ETS reform', url: 'https://ec.europa.eu/commission/presscorner/detail/en/ip_23_2061' },
+    ],
+  },
+  {
+    id: 'ets2',
+    name: 'ETS 2 — Buildings & Road Transport',
+    shortName: 'ETS 2',
+    legalAct: 'Directive (EU) 2023/959 (Chapter IVa)',
+    sector: 'Buildings / Transport',
+    adoptedDate: 'Apr 2023',
+    description:
+      'A new, separate emissions trading system covering fuel combustion in buildings and road transport, created within the same legislative act as the ETS reform. It will launch in 2027 with a transitional price cap of €45/t to cushion the initial impact on households and businesses.',
+    keyProvisions: [
+      'Covers fuel distributors supplying buildings and road transport from 2027',
+      'Price stability mechanism: €45/t cap in early years',
+      'Revenues flow to the Social Climate Fund to protect vulnerable groups',
+      'Commission may delay launch if energy prices are exceptionally high',
+    ],
+    references: [
+      { title: 'Directive (EU) 2023/959 (ETS 2, Chapter IVa) — EUR-Lex', url: 'https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32023L0959' },
+      { title: 'Council press release, Apr 2023', url: 'https://www.consilium.europa.eu/en/press/press-releases/2023/04/25/fit-for-55-council-adopts-key-pieces-of-legislation-delivering-on-2030-climate-targets/' },
+    ],
+  },
+  {
+    id: 'cbam',
+    name: 'Carbon Border Adjustment Mechanism',
+    shortName: 'CBAM',
+    legalAct: 'Regulation (EU) 2023/956',
+    sector: 'Industry / Trade',
+    adoptedDate: 'May 2023',
+    description:
+      'Puts a carbon price on imports of carbon-intensive goods to prevent "carbon leakage" — the risk that EU industry relocates to countries with weaker climate rules. Importers must purchase CBAM certificates matching the carbon price that would have been paid under the EU ETS.',
+    keyProvisions: [
+      'Covers cement, iron & steel, aluminium, fertilisers, electricity, and hydrogen',
+      'Transitional reporting phase: Oct 2023–Dec 2025 (data only, no payment)',
+      'Full CBAM certificates required from Jan 2026, as ETS free allowances phase out',
+      'Phased in to align with phase-out of ETS free allowances (2026–2034)',
+    ],
+    references: [
+      { title: 'Regulation (EU) 2023/956 — EUR-Lex', url: 'https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32023R0956' },
+      { title: 'Council press release, Apr 2023', url: 'https://www.consilium.europa.eu/en/press/press-releases/2023/04/25/fit-for-55-council-adopts-key-pieces-of-legislation-delivering-on-2030-climate-targets/' },
+      { title: 'EC CBAM overview', url: 'https://taxation-customs.ec.europa.eu/carbon-border-adjustment-mechanism_en' },
+    ],
+  },
+  {
+    id: 'effort-sharing',
+    name: 'Effort Sharing Regulation',
+    shortName: 'ESR',
+    legalAct: 'Regulation (EU) 2023/857',
+    sector: 'Non-ETS Sectors',
+    adoptedDate: 'May 2023',
+    description:
+      'Sets binding national GHG reduction targets for sectors outside the EU ETS — road transport, buildings, agriculture, small industry, and waste — which together account for roughly 60% of EU emissions. Targets range from −10% to −50% by 2030 depending on each member state\'s economic capacity.',
+    keyProvisions: [
+      'Overall ESR target: −40% across covered sectors by 2030 vs 2005',
+      'Country-specific targets: −10% (Bulgaria) to −50% (Denmark, Finland, Sweden, Luxembourg)',
+      'Flexibility mechanisms allow limited borrowing from future years or trading between states',
+      'LULUCF flexibility: limited use of land-sector removals to meet ESR targets',
+    ],
+    references: [
+      { title: 'Regulation (EU) 2023/857 — EUR-Lex', url: 'https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32023R0857' },
+      { title: 'Council press release, Apr 2023', url: 'https://www.consilium.europa.eu/en/press/press-releases/2023/04/25/fit-for-55-council-adopts-key-pieces-of-legislation-delivering-on-2030-climate-targets/' },
+    ],
+  },
+  {
+    id: 'lulucf',
+    name: 'LULUCF Regulation',
+    shortName: 'LULUCF',
+    legalAct: 'Regulation (EU) 2023/839',
+    sector: 'Land Use',
+    adoptedDate: 'May 2023',
+    description:
+      'Sets a binding EU-wide carbon sink target of 310 Mt CO₂eq by 2030 for the land use, land-use change, and forestry sector. Member states receive individual binding targets and must ensure their forests, soils, and wetlands absorb more carbon than they emit. From 2026, agriculture is included in the accounting.',
+    keyProvisions: [
+      'EU sink target of 310 Mt CO₂eq by 2030 (up from ~265 Mt)',
+      'Individual binding national targets for each member state',
+      'Agriculture included in accounts from 2026 (new AFOLU pillar)',
+      'New compliance cycle: 2021–2025 and 2026–2030',
+    ],
+    references: [
+      { title: 'Regulation (EU) 2023/839 — EUR-Lex', url: 'https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32023R0839' },
+      { title: 'Council press release, Apr 2023', url: 'https://www.consilium.europa.eu/en/press/press-releases/2023/04/25/fit-for-55-council-adopts-key-pieces-of-legislation-delivering-on-2030-climate-targets/' },
+    ],
+  },
+  {
+    id: 'co2-cars',
+    name: 'CO₂ Standards for Cars & Vans',
+    shortName: 'Cars CO₂',
+    legalAct: 'Regulation (EU) 2023/851',
+    sector: 'Transport',
+    adoptedDate: 'Apr 2023',
+    description:
+      'Requires all new passenger cars and light commercial vehicles sold in the EU to be zero-emission from 2035, effectively ending sales of new petrol and diesel vehicles. Interim targets tighten from 2025 and 2030. A review clause (the "2026 review") allows for e-fuels as a pathway if evidence supports it.',
+    keyProvisions: [
+      '100% zero-emission new cars and vans from 2035',
+      '2030 interim targets: −55% CO₂ for cars, −50% for vans vs 2021',
+      '2025 interim target: −15% CO₂ for both cars and vans',
+      '2026 review clause: Commission to assess progress and e-fuel pathway',
+      'Incentive mechanism for zero- and low-emission vehicles 2025–2029',
+    ],
+    references: [
+      { title: 'Regulation (EU) 2023/851 — EUR-Lex', url: 'https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32023R0851' },
+      { title: 'Council press release, Apr 2023', url: 'https://www.consilium.europa.eu/en/press/press-releases/2023/04/25/fit-for-55-council-adopts-key-pieces-of-legislation-delivering-on-2030-climate-targets/' },
+    ],
+  },
+  {
+    id: 'afir',
+    name: 'Alternative Fuels Infrastructure Regulation',
+    shortName: 'AFIR',
+    legalAct: 'Regulation (EU) 2023/1804',
+    sector: 'Transport',
+    adoptedDate: 'Sep 2023',
+    description:
+      'Makes deployment of EV charging and hydrogen refuelling infrastructure mandatory along the Trans-European Transport Network (TEN-T), removing the infrastructure gap as a barrier to vehicle electrification. Replaces the previous directive-based approach with a directly applicable regulation.',
+    keyProvisions: [
+      'EV fast charging (≥150 kW) every 60 km on TEN-T core network by end-2025',
+      'Full TEN-T comprehensive coverage by end-2027',
+      'Hydrogen refuelling stations in major urban nodes and ports by 2030',
+      'Price transparency: per-kWh pricing mandatory, ad-hoc payment without subscription',
+      'Shore-side electricity supply at major maritime and inland ports by 2030',
+    ],
+    references: [
+      { title: 'Regulation (EU) 2023/1804 — EUR-Lex', url: 'https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32023R1804' },
+      { title: 'Commission welcomes completion of Fit for 55 (Oct 2023)', url: 'https://ec.europa.eu/commission/presscorner/detail/en/ip_23_4754' },
+    ],
+  },
+  {
+    id: 'red3',
+    name: 'Renewable Energy Directive III',
+    shortName: 'RED III',
+    legalAct: 'Directive (EU) 2023/2413',
+    sector: 'Energy',
+    adoptedDate: 'Oct 2023',
+    description:
+      'Raises the EU\'s binding renewable energy target from 32% to 42.5% of gross final energy consumption by 2030, with a non-binding aspiration of 45%. Introduces sector-specific sub-targets for industry, transport, buildings, and district heating. The final adoption of RED III in October 2023 marked the completion of the core Fit for 55 package.',
+    keyProvisions: [
+      'Binding EU target: 42.5% renewables in gross final energy by 2030 (indicative 45%)',
+      'Industry sub-target: 42% renewable hydrogen/fuels by 2030',
+      'Transport: 29% renewable energy or 14.5% GHG intensity reduction by 2030',
+      'Buildings: 49% renewable energy target (indicative)',
+      'Accelerated permitting: max 12-month permit process for renewable projects',
+    ],
+    references: [
+      { title: 'Directive (EU) 2023/2413 — EUR-Lex', url: 'https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32023L2413' },
+      { title: 'Council adopts RED III (Oct 2023)', url: 'https://www.consilium.europa.eu/en/press/press-releases/2023/10/09/renewable-energy-council-adopts-new-rules/' },
+      { title: 'Commission welcomes completion of Fit for 55 (Oct 2023)', url: 'https://ec.europa.eu/commission/presscorner/detail/en/ip_23_4754' },
+    ],
+  },
+  {
+    id: 'eed',
+    name: 'Energy Efficiency Directive',
+    shortName: 'EED',
+    legalAct: 'Directive (EU) 2023/1791',
+    sector: 'Energy',
+    adoptedDate: 'Sep 2023',
+    description:
+      'Recast of the Energy Efficiency Directive establishing a binding EU-level target of 11.7% reduction in final energy consumption by 2030 vs the 2020 reference scenario. Strengthens the "energy efficiency first" principle and places binding renovation obligations on public sector buildings.',
+    keyProvisions: [
+      'Binding final energy savings target: −11.7% by 2030 vs 2020 reference scenario',
+      'Public sector annual renovation obligation: 3% of heated/cooled floor area',
+      '"Energy efficiency first" principle now legally binding across policy decisions',
+      'Annual energy savings obligation of 1.9% of final energy consumption 2024–2030',
+      'Stricter metering and billing requirements for heat and cooling',
+    ],
+    references: [
+      { title: 'Directive (EU) 2023/1791 — EUR-Lex', url: 'https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32023L1791' },
+      { title: 'Commission welcomes completion of Fit for 55 (Oct 2023)', url: 'https://ec.europa.eu/commission/presscorner/detail/en/ip_23_4754' },
+    ],
+  },
+  {
+    id: 'refueleu-aviation',
+    name: 'ReFuelEU Aviation',
+    shortName: 'ReFuelEU Aviation',
+    legalAct: 'Regulation (EU) 2023/2405',
+    sector: 'Aviation',
+    adoptedDate: 'Oct 2023',
+    description:
+      'Mandates increasing blends of sustainable aviation fuels (SAF) at EU airports, creating a guaranteed demand signal for SAF producers. Fuel suppliers must ensure a minimum SAF share in aviation fuel uplifted at EU airports, stepping up every five years to 2050.',
+    keyProvisions: [
+      '6% SAF by 2030, 34% by 2040, 70% by 2050',
+      'Sub-mandate for synthetic fuels: 1.2% by 2030, rising to 35% by 2050',
+      'Applies to fuel suppliers at all EU airports',
+      'Airlines must not fuel up outside the EU to avoid the mandate ("tankering")',
+      'Linked to the ETS revision for aviation emissions cost',
+    ],
+    references: [
+      { title: 'Regulation (EU) 2023/2405 — EUR-Lex', url: 'https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32023R2405' },
+      { title: 'Commission welcomes completion of Fit for 55 (Oct 2023)', url: 'https://ec.europa.eu/commission/presscorner/detail/en/ip_23_4754' },
+    ],
+  },
+  {
+    id: 'fueleu-maritime',
+    name: 'FuelEU Maritime',
+    shortName: 'FuelEU Maritime',
+    legalAct: 'Regulation (EU) 2023/1805',
+    sector: 'Maritime',
+    adoptedDate: 'Sep 2023',
+    description:
+      'Sets declining GHG intensity limits on the energy used by ships calling at EU ports, driving the uptake of alternative marine fuels. Covers all ships of 5,000 GT or more on voyages to, from, or between EU ports, with escalating reduction requirements through 2050.',
+    keyProvisions: [
+      'GHG intensity limits: −2% by 2025, −6% by 2030, −14.5% by 2035, −80% by 2050',
+      'Covers vessels ≥5,000 GT on EU port calls (100%) and international legs (50%)',
+      'Shore-side electricity mandatory for container and passenger ships at TEN-T ports by 2030',
+      'Compliance pooling mechanism between ships under the same company',
+    ],
+    references: [
+      { title: 'Regulation (EU) 2023/1805 — EUR-Lex', url: 'https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32023R1805' },
+      { title: 'Commission welcomes completion of Fit for 55 (Oct 2023)', url: 'https://ec.europa.eu/commission/presscorner/detail/en/ip_23_4754' },
+    ],
+  },
+  {
+    id: 'social-climate-fund',
+    name: 'Social Climate Fund',
+    shortName: 'SCF',
+    legalAct: 'Regulation (EU) 2023/955',
+    sector: 'Social Policy',
+    adoptedDate: 'May 2023',
+    description:
+      'Establishes a fund of up to €86.7 billion (2026–2032) financed from ETS 2 revenues to help vulnerable households, micro-enterprises, and transport users cope with the cost impacts of ETS 2. Member states submit Social Climate Plans outlining how they will use the money.',
+    keyProvisions: [
+      '€86.7 billion available 2026–2032 (co-financed by EU and member states)',
+      'Funded by 25% of ETS 2 revenues',
+      'Member states must submit Social Climate Plans by June 2025',
+      'Measures: direct income support, energy efficiency investments, clean mobility',
+      'At least 50% of expenditure must target vulnerable households in energy poverty',
+    ],
+    references: [
+      { title: 'Regulation (EU) 2023/955 — EUR-Lex', url: 'https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32023R0955' },
+      { title: 'Council press release, Apr 2023', url: 'https://www.consilium.europa.eu/en/press/press-releases/2023/04/25/fit-for-55-council-adopts-key-pieces-of-legislation-delivering-on-2030-climate-targets/' },
+    ],
+  },
+  {
+    id: 'ten-e',
+    name: 'TEN-E Regulation (Energy Infrastructure)',
+    shortName: 'TEN-E',
+    legalAct: 'Regulation (EU) 2022/869',
+    sector: 'Energy Infrastructure',
+    adoptedDate: 'Mar 2022',
+    description:
+      'Revised the Trans-European Energy Infrastructure framework, removing support for new fossil fuel infrastructure projects (gas/oil pipelines) and redirecting EU funding toward offshore renewables, green hydrogen networks, carbon capture and storage, and smart electricity grids.',
+    keyProvisions: [
+      'No new fossil fuel projects eligible for EU financial support under TEN-E',
+      'New priority corridors for offshore wind (North Sea, Baltic, Mediterranean)',
+      'Hydrogen and electrolysis infrastructure added as Projects of Common Interest (PCI)',
+      'Smart electricity grid and CO₂ transport networks added as PCI categories',
+      'Accelerated 3.5-year permit process for cross-border energy projects',
+    ],
+    references: [
+      { title: 'Regulation (EU) 2022/869 — EUR-Lex', url: 'https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32022R0869' },
+      { title: 'Council adopts TEN-E Regulation (Mar 2022)', url: 'https://www.consilium.europa.eu/en/press/press-releases/2022/03/28/trans-european-energy-networks-council-adopts-regulation/' },
     ],
   },
 ]
