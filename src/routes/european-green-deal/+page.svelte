@@ -53,6 +53,19 @@
 
   <div class="bg-slate-900 border border-slate-800 rounded-xl p-6 mb-8">
     <p class="text-slate-300 leading-relaxed">{initiative.description}</p>
+    {#if initiative.references}
+      <div class="mt-4 pt-4 border-t border-slate-800">
+        <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">References</p>
+        <ul class="space-y-1">
+          {#each initiative.references as ref, i}
+            <li class="text-xs text-slate-500">
+              <span class="mr-1">[{i + 1}]</span>
+              <a href={ref.url} target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 underline underline-offset-2 transition-colors">{ref.title}</a>
+            </li>
+          {/each}
+        </ul>
+      </div>
+    {/if}
   </div>
 
   <h2 class="text-lg font-bold text-white mb-4">Key Metrics</h2>

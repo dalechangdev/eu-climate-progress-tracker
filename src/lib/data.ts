@@ -23,6 +23,11 @@ export interface Milestone {
   achieved: boolean
 }
 
+export interface Reference {
+  title: string
+  url: string
+}
+
 export interface Initiative {
   id: string
   slug: string
@@ -30,6 +35,7 @@ export interface Initiative {
   shortTitle: string
   tagline: string
   description: string
+  references?: Reference[]
   status: Status
   overallProgress: number
   targetYear: number
@@ -48,6 +54,12 @@ export const initiatives: Initiative[] = [
     tagline: "Europe's roadmap to climate neutrality",
     description:
       'The European Green Deal is the overarching policy framework announced in December 2019 by the Von der Leyen Commission. It sets the ambition for the EU to become the first climate-neutral continent by 2050, covering energy, transport, industry, agriculture, and biodiversity. It underpins all other EU climate legislation.',
+    references: [
+      { title: 'COM(2019) 640 final – European Green Deal Communication', url: 'https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=celex:52019DC0640' },
+      { title: 'EC press release, 11 Dec 2019', url: 'https://neighbourhood-enlargement.ec.europa.eu/news/european-green-deal-sets-out-how-make-europe-first-climate-neutral-continent-2050-boosting-economy-2019-12-11_en' },
+      { title: 'EUR-Lex summary of the European Green Deal', url: 'https://eur-lex.europa.eu/EN/legal-content/summary/european-green-deal.html' },
+      { title: 'Council of the EU – European Green Deal', url: 'https://www.consilium.europa.eu/en/policies/european-green-deal/' },
+    ],
     status: 'on-track',
     overallProgress: 71,
     targetYear: 2050,
