@@ -6,9 +6,3 @@
   --color-eu-blue-light: #1a4db3;
   --color-eu-yellow: #ffd700;
 }
-
-body {
-  background-color: #030712;
-  color: #f1f5f9;
-  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
-}

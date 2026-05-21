@@ -79,7 +79,7 @@ export const initiatives: Initiative[] = [
     shortTitle: 'Fit for 55',
     tagline: 'The legislative engine of the Green Deal',
     description:
-      'Fit for 55 is the EU\'s comprehensive package of 13 legislative proposals published in July 2021, designed to reduce net greenhouse gas emissions by at least 55% by 2030 vs 1990 levels. All 13 core proposals have been adopted into law (2022–2023) and are now in their implementation phase across energy, transport, industry, land use, and carbon markets.',
+      "Fit for 55 is the EU's comprehensive package of 13 legislative proposals published in July 2021, designed to reduce net greenhouse gas emissions by at least 55% by 2030 vs 1990 levels. All 13 core proposals have been adopted into law (2022–2023) and are now in their implementation phase across energy, transport, industry, land use, and carbon markets.",
     status: 'on-track',
     overallProgress: 85,
     targetYear: 2030,
@@ -177,7 +177,7 @@ export const initiatives: Initiative[] = [
         status: 'in-force',
         adoptedDate: 'May 2023',
         description:
-          'Land use, land-use change and forestry carbon sink target of 310 Mt CO₂eq by 2030, with binding national targets. Phase 2 (2026–2030) sets overall EU net-removal accounting.',
+          'Land use, land-use change and forestry carbon sink target of 310 Mt CO₂eq by 2030, with binding national targets.',
       },
       {
         name: 'Social Climate Fund',
@@ -215,7 +215,7 @@ export const initiatives: Initiative[] = [
     shortTitle: '2030 Targets',
     tagline: "The EU's binding near-term climate commitments",
     description:
-      'The EU\'s 2030 climate targets represent the most critical near-term milestone on the road to net zero. Legally binding under the European Climate Law (June 2021), the EU must achieve at least a 55% net reduction in GHG emissions by 2030 vs 1990 levels. Sub-targets cover renewable energy (42.5%), energy efficiency (−11.7%), and sectoral transition milestones.',
+      "The EU's 2030 climate targets represent the most critical near-term milestone on the road to net zero. Legally binding under the European Climate Law (June 2021), the EU must achieve at least a 55% net reduction in GHG emissions by 2030 vs 1990 levels. Sub-targets cover renewable energy (42.5%), energy efficiency (−11.7%), and sectoral transition milestones.",
     status: 'at-risk',
     overallProgress: 62,
     targetYear: 2030,
@@ -246,7 +246,7 @@ export const initiatives: Initiative[] = [
     shortTitle: 'Net Zero 2050',
     tagline: 'Climate neutrality by mid-century',
     description:
-      'The EU\'s commitment to climate neutrality by 2050 is enshrined in the European Climate Law, making the EU the first major economy to set this target in binding legislation. Achieving net zero requires transforming every sector — power, transport, buildings, industry, agriculture, and land use — while maintaining economic competitiveness. The Commission proposed a 2040 interim target of −90% in February 2024.',
+      "The EU's commitment to climate neutrality by 2050 is enshrined in the European Climate Law, making the EU the first major economy to set this target in binding legislation. Achieving net zero requires transforming every sector — power, transport, buildings, industry, agriculture, and land use — while maintaining economic competitiveness. The Commission proposed a 2040 interim target of −90% in February 2024.",
     status: 'at-risk',
     overallProgress: 34,
     targetYear: 2050,
@@ -255,7 +255,7 @@ export const initiatives: Initiative[] = [
       { label: 'GHG Reduction vs 1990 (2022)', value: '−34%', subValue: 'Target: net zero by 2050', trend: 'improving' },
       { label: '2040 Target (proposed)', value: '−90%', subValue: 'vs 1990; under legislation', trend: 'stable' },
       { label: 'Renewable Share in Electricity (2023)', value: '~44%', subValue: 'Target: ~100% by 2035–40', trend: 'improving' },
-      { label: 'Annual Emissions Reduction Rate Needed', value: '~4–5%/yr', subValue: 'Current rate: ~1–2%/yr', trend: 'worsening' },
+      { label: 'Annual Reduction Rate Needed', value: '~4–5%/yr', subValue: 'Current rate: ~1–2%/yr', trend: 'worsening' },
     ],
     milestones: [
       { year: 2019, title: 'EU Green Deal sets 2050 climate neutrality goal', achieved: true },
